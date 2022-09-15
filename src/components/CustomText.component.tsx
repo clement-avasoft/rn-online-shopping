@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Text, TextStyle, View} from 'react-native';
+import {StyleProp, Text, TextStyle, View} from 'react-native';
 
 import TextTypes from '../enums/TextTypes.enum';
 
@@ -7,6 +7,7 @@ interface TextProps {
   value: string | number;
   type: TextTypes;
   color?: string;
+  style?: StyleProp<TextStyle>;
 }
 
 const CustomText: React.FC<TextProps> = props => {
@@ -77,6 +78,7 @@ const CustomText: React.FC<TextProps> = props => {
         style={[
           textStyle,
           {color: props.color !== undefined ? props.color : 'black'},
+          props.style,
         ]}>
         {props.value}
       </Text>
