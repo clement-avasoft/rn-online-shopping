@@ -89,7 +89,6 @@ const PopularDeals: React.FC<PopularDealsProps> = ({
             value={productRate ? `$${productRate}` : ''}
             type={CustomTextTypes.semi_bold_16}
             color="#303733"
-            style={{paddingBottom: 18}}
           />
         </View>
       </View>
