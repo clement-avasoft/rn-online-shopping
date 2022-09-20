@@ -1,8 +1,10 @@
 import React from 'react';
 import {
   ColorValue,
+  GestureResponderEvent,
   NativeSyntheticEvent,
   NativeTouchEvent,
+  Pressable,
   StyleProp,
   StyleSheet,
   TextInput,
@@ -31,6 +33,14 @@ interface CustomTextInputProps {
   value?: string | undefined;
   defaultValue?: string | undefined;
   selectionColor?: string | undefined;
+  onLeftIconPress?: ((event: GestureResponderEvent) => void) | null | undefined;
+  onRightIconPress?:
+    | ((event: GestureResponderEvent) => void)
+    | null
+    | undefined;
+  onFocus?:
+    | ((e: NativeSyntheticEvent<TextInputFocusEventData>) => void)
+    | undefined;
 }
 
 const CustomTextInput: React.FC<CustomTextInputProps> = ({
@@ -48,6 +58,9 @@ const CustomTextInput: React.FC<CustomTextInputProps> = ({
   defaultValue,
   backgroundColor,
   selectionColor,
+  onLeftIconPress,
+  onRightIconPress,
+  onFocus,
 }) => {
   return (
     <View
@@ -58,9 +71,14 @@ const CustomTextInput: React.FC<CustomTextInputProps> = ({
           : {backgroundColor: '#E8ECF2'},
         style,
       ]}>
-      {leftIcon ? <View style={styles.iconAlignment}>{leftIcon}</View> : null}
+      {leftIcon ? (
+        <Pressable style={styles.iconAlignment} onPress={onLeftIconPress}>
+          {leftIcon}
+        </Pressable>
+      ) : null}
       <View style={{flex: 10}}>
         <TextInput
+          onFocus={onFocus}
           secureTextEntry={secureTextEntry}
           onPressIn={onPressIn}
           onChangeText={onChangeText}
@@ -79,7 +97,11 @@ const CustomTextInput: React.FC<CustomTextInputProps> = ({
           selectionColor={selectionColor}
         />
       </View>
-      {rightIcon ? <View style={styles.iconAlignment}>{rightIcon}</View> : null}
+      {rightIcon ? (
+        <Pressable style={styles.iconAlignment} onPress={onRightIconPress}>
+          {rightIcon}
+        </Pressable>
+      ) : null}
     </View>
   );
 };
@@ -89,18 +111,17 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
     flexDirection: 'row',
-    borderRadius: 5,
+    borderRadius: 14,
   },
   iconAlignment: {
     flex: 2,
-    paddingLeft: 10,
-    paddingRight: 10,
     justifyContent: 'center',
     alignItems: 'center',
   },
   textInput: {
     width: '100%',
     height: '100%',
+    borderRadius: 14,
   },
 });
 
