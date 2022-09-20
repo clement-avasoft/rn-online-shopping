@@ -322,6 +322,7 @@ const SignupScreen: React.FC<SignupScreenProps> = ({navigation}) => {
             <CustomText
               value={'By tapping “Sign Up” you accept our terms and conditions'}
               type={CustomTextTypes.medium_16}
+              color="#7D8FAB"
             />
           </View>
         </View>
@@ -336,6 +337,7 @@ const SignupScreen: React.FC<SignupScreenProps> = ({navigation}) => {
           <CustomText
             value={'Already have account?'}
             type={CustomTextTypes.regular_16}
+            color="#7D8FAB"
           />
           <CustomButton
             onPress={() => {

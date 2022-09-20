@@ -62,6 +62,7 @@ const AdvertismentCard: React.FC<AdvertismentCardProps> = ({
           value={offerHeading}
           type={CustomTextTypes.bold_18}
           style={{paddingTop: 7, lineHeight: 27}}
+          color="#FFFFFF"
         />
         <CustomText
           value={offerSubHeading}
@@ -81,6 +82,7 @@ const AdvertismentCard: React.FC<AdvertismentCardProps> = ({
             value={buttonValue}
             type={CustomTextTypes.semi_bold_7}
             style={{lineHeight: 10}}
+            color="#FFFFFF"
           />
         </Pressable>
       </View>

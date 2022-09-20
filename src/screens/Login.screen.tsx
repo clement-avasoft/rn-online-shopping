@@ -125,6 +125,7 @@ const LoginScreen: React.FC<LoginScreenProps> = ({navigation}) => {
             }
             type={CustomTextTypes.regular_14}
             style={{paddingBottom: 20}}
+            color="#7D8FAB"
           />
           <Formik
             initialValues={{name: '', password: ''}}
@@ -279,6 +280,7 @@ const LoginScreen: React.FC<LoginScreenProps> = ({navigation}) => {
             <CustomText
               value={'Don’t have an account?'}
               type={CustomTextTypes.regular_16}
+              color="#7D8FAB"
             />
             <CustomButton
               onPress={() => {

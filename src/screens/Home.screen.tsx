@@ -251,15 +251,15 @@ const HomeScreen: React.FC<HomeScreenProps> = ({navigation}) => {
     });
 
     if (!likedProduct) {
-      return <HeartIcon color="#7D8FAB" />;
+      return <HeartIcon color="rgba(45, 45, 45, 0.6)" />;
     }
 
     if (likedProduct.productId === item.id && !likedProduct.isProductSelected) {
-      return <HeartIcon color="#7D8FAB" />;
+      return <HeartIcon color="rgba(45, 45, 45, 0.6)" />;
     }
 
     if (likedProduct.productId === item.id && likedProduct.isProductSelected) {
-      return <HeartIcon color="red" />;
+      return <HeartIcon color="#FA662E" />;
     }
   };
 
@@ -467,6 +467,7 @@ const HomeScreen: React.FC<HomeScreenProps> = ({navigation}) => {
                     value={'Good morning'}
                     type={CustomTextTypes.regular_14}
                     style={{lineHeight: 21}}
+                    color="#7D8FAB"
                   />
                 </View>
 
@@ -502,7 +503,8 @@ const HomeScreen: React.FC<HomeScreenProps> = ({navigation}) => {
                   alignItems: 'center',
                 }}>
                 <CustomTextInput
-                  placeholder="Search"
+                  placeholder="Search..."
+                  placeholderTextColor={'#7D8FAB'}
                   style={{
                     width: 239,
                     height: 54,

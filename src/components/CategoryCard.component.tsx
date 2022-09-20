@@ -56,6 +56,7 @@ const CategoryCard: React.FC<CategoryCardProps> = ({
           value={itemsCount}
           type={CustomTextTypes.regular_12}
           style={{lineHeight: 18}}
+          color="#7D8FAB"
         />
       </View>
     </Pressable>

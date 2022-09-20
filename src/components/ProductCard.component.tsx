@@ -105,6 +105,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
                     value={offerString}
                     type={CustomTextTypes.medium_10}
                     style={{paddingLeft: 10, lineHeight: 18}}
+                    color="#7D8FAB"
                   />
                 </>
               ) : null}
