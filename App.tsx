@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Dimensions, View} from 'react-native';
+import {Dimensions, StatusBar, View} from 'react-native';
 
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {NavigationContainer} from '@react-navigation/native';
@@ -130,6 +130,7 @@ const App = () => {
   return (
     <Provider store={store}>
       <NavigationContainer>
+        <StatusBar translucent={true} backgroundColor={'transparent'} />
         <Stack.Navigator>
           <Stack.Screen
             name="Login"

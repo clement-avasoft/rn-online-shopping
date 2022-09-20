@@ -4,6 +4,7 @@ import {
   FlatList,
   Image,
   ImageSourcePropType,
+  StatusBar,
   StyleSheet,
   View,
 } from 'react-native';
@@ -444,6 +445,7 @@ const HomeScreen: React.FC<HomeScreenProps> = ({navigation}) => {
 
   return (
     <View style={{backgroundColor: '#FFFFFF'}}>
+      <StatusBar barStyle={'dark-content'} />
       <FlatList
         ListHeaderComponent={
           <View>
@@ -451,7 +453,7 @@ const HomeScreen: React.FC<HomeScreenProps> = ({navigation}) => {
               <View
                 style={{
                   paddingBottom: 19,
-                  paddingTop: 20,
+                  paddingTop: 40,
                   flexDirection: 'row',
                   justifyContent: 'space-between',
                 }}>
