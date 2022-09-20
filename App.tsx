@@ -1,120 +1,155 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * Generated with the TypeScript template
- * https://github.com/react-native-community/react-native-template-typescript
- *
- * @format
- */
+import React from 'react';
 
-import React, {type PropsWithChildren} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+import {Dimensions, View} from 'react-native';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
-const Section: React.FC<
-  PropsWithChildren<{
-    title: string;
-  }>
-> = ({children, title}) => {
-  const isDarkMode = useColorScheme() === 'dark';
+import {Provider} from 'react-redux';
+import {store} from './src/store';
+
+import HomeScreen from './src/screens/Home.screen';
+import LoginScreen from './src/screens/Login.screen';
+import SignupScreen from './src/screens/Signup.screen';
+
+import BagIcon from './src/images/BagIcon.svg';
+import Buy from './src/images/Buy.svg';
+import HomeIcon from './src/images/HomeIcon.svg';
+import TabProfileIcon from './src/images/TabProfileIcon.svg';
+import WishlistIcon from './src/images/Wishlist.svg';
+
+const windowWidth = Dimensions.get('screen').width;
+const windowHeight = Dimensions.get('screen').height;
+
+const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
+
+interface MainProps {
+  navigation: any;
+}
+
+const Main: React.FC<MainProps> = props => {
   return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
+    <Tab.Navigator
+      screenOptions={({route}) => ({
+        tabBarIcon: ({focused}) => {
+          if (route.name === 'Home') {
+            return focused ? (
+              <HomeIcon color="#FF8B38" />
+            ) : (
+              <HomeIcon color="#BFC9DA" />
+            );
+          }
+
+          if (route.name === 'MyOrders') {
+            return focused ? (
+              <BagIcon color="#FF8B38" />
+            ) : (
+              <BagIcon color="#BFC9DA" />
+            );
+          }
+
+          if (route.name === 'ShoppingCart') {
+            return focused ? (
+              <View
+                style={{
+                  width: 35,
+                  height: 35,
+                  backgroundColor: '#FF8B38',
+                  borderRadius: 12,
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}>
+                <Buy />
+              </View>
+            ) : (
+              <View
+                style={{
+                  width: 35,
+                  height: 35,
+                  backgroundColor: '#FF8B38',
+                  borderRadius: 12,
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}>
+                <Buy />
+              </View>
+            );
+          }
+
+          if (route.name === 'Wishlists') {
+            return focused ? (
+              <WishlistIcon color="#FF8B38" />
+            ) : (
+              <WishlistIcon color="#BFC9DA" />
+            );
+          }
+
+          if (route.name === 'Profile') {
+            return focused ? (
+              <TabProfileIcon color="#FF8B38" />
+            ) : (
+              <TabProfileIcon color="#BFC9DA" />
+            );
+          }
+        },
+        tabBarActiveTintColor: '#7F3DFF',
+        tabBarInactiveTintColor: '#C6C6C6',
+      })}>
+      <Tab.Screen
+        name="Home"
+        component={HomeScreen}
+        options={{headerShown: false}}
+      />
+      <Tab.Screen
+        name="MyOrders"
+        component={HomeScreen}
+        options={{headerShown: false}}
+      />
+      <Tab.Screen
+        name="ShoppingCart"
+        component={HomeScreen}
+        options={{headerShown: false}}
+      />
+      <Tab.Screen
+        name="Wishlists"
+        component={HomeScreen}
+        options={{headerShown: false}}
+      />
+      <Tab.Screen
+        name="Profile"
+        component={HomeScreen}
+        options={{headerShown: false}}
+      />
+    </Tab.Navigator>
   );
 };
 
 const App = () => {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
+    <Provider store={store}>
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen
+            name="Login"
+            component={LoginScreen}
+            options={{headerShown: false}}
+          />
+          <Stack.Screen
+            name="Signup"
+            component={SignupScreen}
+            options={{headerShown: false}}
+          />
+          <Stack.Screen
+            name="Main"
+            component={Main}
+            options={{headerShown: false}}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </Provider>
   );
 };
-
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
 
 export default App;
