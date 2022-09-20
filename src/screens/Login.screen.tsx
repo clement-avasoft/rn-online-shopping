@@ -105,7 +105,7 @@ const LoginScreen: React.FC<LoginScreenProps> = ({navigation}) => {
             <View style={{paddingBottom: 76}}>
               <LockMart />
               <CustomText
-                value={'G R O C E R Y       A P P'}
+                value={'G R O C E R Y      A P P'}
                 type={CustomTextTypes.regular_16}
                 color="#FFFFFF"
                 style={{paddingTop: 3}}
