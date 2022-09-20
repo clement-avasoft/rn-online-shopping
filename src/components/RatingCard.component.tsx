@@ -23,7 +23,11 @@ const RatingCard: React.FC<RatingCardProps> = ({value}) => {
         alignItems: 'center',
       }}>
       <StarIcon />
-      <CustomText value={value} type={CustomTextTypes.semi_bold_12} />
+      <CustomText
+        value={value}
+        type={CustomTextTypes.semi_bold_12}
+        style={{lineHeight: 24}}
+      />
     </View>
   );
 };
