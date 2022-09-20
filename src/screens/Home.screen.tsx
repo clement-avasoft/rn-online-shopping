@@ -528,6 +528,7 @@ const HomeScreen: React.FC<HomeScreenProps> = ({navigation}) => {
             <View style={{paddingBottom: 39}}>
               <FlatList
                 horizontal
+                showsHorizontalScrollIndicator={false}
                 data={AdvertismentData}
                 renderItem={renderAdvertismentItem}
                 keyExtractor={(item: AdvertismentModel) => {
@@ -553,6 +554,7 @@ const HomeScreen: React.FC<HomeScreenProps> = ({navigation}) => {
             <View style={{marginBottom: 39}}>
               <FlatList
                 horizontal
+                showsHorizontalScrollIndicator={false}
                 data={CategoryData}
                 renderItem={renderCategoryItem}
                 keyExtractor={(item: CategoryModel) => {
@@ -576,6 +578,7 @@ const HomeScreen: React.FC<HomeScreenProps> = ({navigation}) => {
             <View style={{marginBottom: 42}}>
               <FlatList
                 horizontal
+                showsHorizontalScrollIndicator={false}
                 data={ProductData}
                 renderItem={renderPopularDeals}
                 keyExtractor={(item: ProductModel) => {
@@ -593,6 +596,7 @@ const HomeScreen: React.FC<HomeScreenProps> = ({navigation}) => {
             </DefaultPadding>
           </View>
         }
+        showsVerticalScrollIndicator={false}
         data={ProductData}
         renderItem={renderProductItem}
         keyExtractor={(item: ProductModel) => {
