@@ -73,7 +73,7 @@ const PopularDeals: React.FC<PopularDealsProps> = ({
           value={productName}
           type={CustomTextTypes.semi_bold_18}
           color="#303733"
-          style={{paddingTop: 20}}
+          style={{paddingTop: 17, lineHeight: 22}}
         />
         <View style={styles.bottomContainer}>
           <View style={styles.ratingContainer}>
@@ -81,7 +81,7 @@ const PopularDeals: React.FC<PopularDealsProps> = ({
             <CustomText
               value={ratingCount ? `${ratingCount} Ratings` : ''}
               type={CustomTextTypes.medium_12}
-              style={{paddingLeft: 10}}
+              style={{paddingLeft: 10, lineHeight: 18}}
               color="#FA662E"
             />
           </View>
@@ -89,6 +89,7 @@ const PopularDeals: React.FC<PopularDealsProps> = ({
             value={productRate ? `$${productRate}` : ''}
             type={CustomTextTypes.semi_bold_16}
             color="#303733"
+            style={{lineHeight: 26}}
           />
         </View>
       </View>
@@ -100,10 +101,11 @@ const styles = StyleSheet.create({
   mainConatiner: {
     width: '100%',
     height: 289,
+    borderRadius: 14,
   },
   productImageMainContainer: {
     width: '100%',
-    height: 200,
+    height: 218,
     position: 'relative',
     borderRadius: 14,
   },
@@ -131,7 +133,7 @@ const styles = StyleSheet.create({
   bottomContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    paddingTop: 18,
+    paddingTop: 10,
   },
 });
 

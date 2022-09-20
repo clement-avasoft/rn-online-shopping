@@ -49,9 +49,14 @@ const CategoryCard: React.FC<CategoryCardProps> = ({
           <CustomText
             value={categoryName}
             type={CustomTextTypes.semi_bold_16}
+            style={{lineHeight: 22}}
           />
         </View>
-        <CustomText value={itemsCount} type={CustomTextTypes.regular_12} />
+        <CustomText
+          value={itemsCount}
+          type={CustomTextTypes.regular_12}
+          style={{lineHeight: 18}}
+        />
       </View>
     </Pressable>
   );
@@ -63,6 +68,7 @@ const styles = StyleSheet.create({
     height: 142,
     flexDirection: 'column',
     justifyContent: 'space-between',
+    borderRadius: 14,
   },
   iconContainer: {
     width: '100%',

@@ -25,6 +25,7 @@ interface AdvertismentCardProps {
   buttonColor?: ColorValue;
   buttonStyle?: StyleProp<ViewStyle>;
   onPress?: ((event: GestureResponderEvent) => void) | null | undefined;
+  style?: StyleProp<ViewStyle>;
 }
 
 const AdvertismentCard: React.FC<AdvertismentCardProps> = ({
@@ -37,6 +38,7 @@ const AdvertismentCard: React.FC<AdvertismentCardProps> = ({
   buttonValue,
   buttonColor,
   buttonStyle,
+  style,
   onPress,
 }) => {
   return (
@@ -47,23 +49,24 @@ const AdvertismentCard: React.FC<AdvertismentCardProps> = ({
         backgroundColor
           ? {backgroundColor: backgroundColor}
           : {backgroundColor: '#FFFFFF'},
+        style,
       ]}>
       {image}
       <View style={styles.cardDetails}>
         <CustomText
           value={heading}
           type={CustomTextTypes.semi_bold_14}
-          style={{paddingTop: 20}}
+          style={{paddingTop: 17, lineHeight: 21}}
         />
         <CustomText
           value={offerHeading}
           type={CustomTextTypes.bold_18}
-          style={{paddingTop: 10}}
+          style={{paddingTop: 7, lineHeight: 27}}
         />
         <CustomText
           value={offerSubHeading}
           type={CustomTextTypes.semi_bold_12}
-          style={{paddingTop: 2, paddingBottom: 7}}
+          style={{paddingBottom: 7, lineHeight: 18}}
         />
         <Pressable
           onPress={onOrderNowPressed}
@@ -74,7 +77,11 @@ const AdvertismentCard: React.FC<AdvertismentCardProps> = ({
               : {backgroundColor: '#FF8B38'},
             buttonStyle,
           ]}>
-          <CustomText value={buttonValue} type={CustomTextTypes.semi_bold_7} />
+          <CustomText
+            value={buttonValue}
+            type={CustomTextTypes.semi_bold_7}
+            style={{lineHeight: 10}}
+          />
         </Pressable>
       </View>
     </Pressable>
@@ -91,7 +98,7 @@ const styles = StyleSheet.create({
   },
   cardDetails: {
     width: '60%',
-    marginLeft: 25,
+    marginLeft: 16,
     height: 130,
     position: 'absolute',
   },

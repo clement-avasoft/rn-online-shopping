@@ -77,14 +77,14 @@ const ProductCard: React.FC<ProductCardProps> = ({
           value={productName}
           type={CustomTextTypes.semi_bold_18}
           color="#303733"
-          style={{paddingBottom: 10}}
+          style={{paddingBottom: 10, lineHeight: 22}}
         />
         <View style={styles.ratingContainer}>
           {ratingValue ? <RatingCard value={ratingValue} /> : null}
           <CustomText
             value={ratingCount ? `${ratingCount} Ratings` : ''}
             type={CustomTextTypes.medium_12}
-            style={{paddingLeft: 10}}
+            style={{paddingLeft: 10, lineHeight: 18}}
             color="#FA662E"
           />
         </View>
@@ -92,7 +92,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
           value={productRate ? `$${productRate}` : ''}
           type={CustomTextTypes.semi_bold_16}
           color="#303733"
-          style={{paddingBottom: 18}}
+          style={{paddingBottom: 18, lineHeight: 18}}
         />
         {offerView ? (
           <>
@@ -104,7 +104,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
                   <CustomText
                     value={offerString}
                     type={CustomTextTypes.medium_10}
-                    style={{paddingLeft: 10}}
+                    style={{paddingLeft: 10, lineHeight: 18}}
                   />
                 </>
               ) : null}
@@ -121,6 +121,7 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 152,
     flexDirection: 'row',
+    borderRadius: 14,
   },
   productImageMainContainer: {
     flex: 1,
@@ -153,7 +154,7 @@ const styles = StyleSheet.create({
   ratingContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingBottom: 10,
+    paddingBottom: 17,
   },
   horizontalLine: {
     width: '100%',

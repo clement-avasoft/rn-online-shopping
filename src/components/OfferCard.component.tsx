@@ -31,7 +31,8 @@ const OfferCard: React.FC<OfferCardProps> = ({
       <CustomText
         value={value}
         type={CustomTextTypes.bold_10}
-        color={textColor}></CustomText>
+        color={textColor}
+        style={{lineHeight: 18}}></CustomText>
     </View>
   );
 };
