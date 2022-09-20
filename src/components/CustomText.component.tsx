@@ -16,64 +16,66 @@ const CustomText: React.FC<TextProps> = props => {
   useEffect(() => {
     switch (props.type) {
       case TextTypes.extra_bold_16:
-        setTextStyle(setStyle(16, '800'));
+        setTextStyle(setStyle(16, 'ExtraBold'));
         break;
       case TextTypes.bold_10:
-        setTextStyle(setStyle(10, '700'));
+        setTextStyle(setStyle(10, 'Poppins-Bold'));
         break;
       case TextTypes.bold_18:
-        setTextStyle(setStyle(18, '700'));
+        setTextStyle(setStyle(18, 'Poppins-Bold'));
         break;
       case TextTypes.bold_22:
-        setTextStyle(setStyle(22, '700'));
+        setTextStyle(setStyle(22, 'Poppins-Bold'));
         break;
       case TextTypes.bold_24:
-        setTextStyle(setStyle(24, '700'));
+        setTextStyle(setStyle(24, 'Poppins-Bold'));
         break;
       case TextTypes.semi_bold_7:
-        setTextStyle(setStyle(7, '600'));
+        setTextStyle(setStyle(7, 'Poppins-SemiBold'));
         break;
       case TextTypes.semi_bold_12:
-        setTextStyle(setStyle(12, '600'));
+        setTextStyle(setStyle(12, 'Poppins-SemiBold'));
         break;
       case TextTypes.semi_bold_14:
-        setTextStyle(setStyle(14, '600'));
+        setTextStyle(setStyle(14, 'Poppins-SemiBold'));
         break;
       case TextTypes.semi_bold_16:
-        setTextStyle(setStyle(16, '600'));
+        setTextStyle(setStyle(16, 'Poppins-SemiBold'));
         break;
       case TextTypes.semi_bold_18:
-        setTextStyle(setStyle(18, '600'));
+        setTextStyle(setStyle(18, 'Poppins-SemiBold'));
         break;
       case TextTypes.medium_10:
-        setTextStyle(setStyle(10, '500'));
+        setTextStyle(setStyle(10, 'Poppins-Medium'));
         break;
       case TextTypes.medium_12:
-        setTextStyle(setStyle(12, '500'));
+        setTextStyle(setStyle(12, 'Poppins-Medium'));
         break;
       case TextTypes.medium_16:
-        setTextStyle(setStyle(16, '500'));
+        setTextStyle(setStyle(16, 'Poppins-Medium'));
         break;
       case TextTypes.regular_12:
-        setTextStyle(setStyle(12, 'normal'));
+        setTextStyle(setStyle(12, 'Poppins-Regular'));
         break;
       case TextTypes.regular_14:
-        setTextStyle(setStyle(14, 'normal'));
+        setTextStyle(setStyle(14, 'Poppins-Regular'));
         break;
       case TextTypes.regular_16:
-        setTextStyle(setStyle(16, 'normal'));
+        setTextStyle(setStyle(16, 'Poppins-Regular'));
         break;
     }
   }, [props.type]);
 
-  const setStyle = (fontSize: number, fontWeight: string): TextStyle => {
-    let Style = {fontSize: fontSize, fontWeight: fontWeight};
+  const setStyle = (fontSize: number, fontFamily: string): TextStyle => {
+    let Style = {
+      fontSize: fontSize,
+      fontFamily: fontFamily,
+    };
     return Style as TextStyle;
   };
 
   return (
     <View>
-      <View></View>
       <Text
         style={[
           textStyle,
